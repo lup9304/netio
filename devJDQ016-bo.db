@@ -1,0 +1,35 @@
+## Simple database and stream protocol file for basic SCPI (IEEE488.2) commands
+#
+
+
+#
+# Short and long form of identification string
+#
+
+record(bi, "$(P)$(R)R$(Chan):bi")
+{
+        field(DESC, "lost phase state")
+        field(INP,  "$(P)$(R)Relay:mbbiD.B$(Chan) NPP")
+        field(ZNAM,"off")
+        field(ONAM,"on")
+        field(FLNK, "$(P)$(R)R$(Next):bi")
+}
+
+record(bi, "$(P)$(R)IN$(Chan):bi")
+{
+        field(DESC, "lost phase state")
+        field(INP,  "$(P)$(R)IN:mbbiD.B$(Chan) NPP")
+        field(ZNAM,"off")
+        field(ONAM,"on")
+        field(FLNK, "$(P)$(R)IN$(Next):bi")
+}
+
+record(bo, "$(P)$(R)R$(Chan):bo")
+{
+    field(DESC, "Set Relay Chan$(Chan)")
+    field(DTYP, "stream")
+    field(ZNAM,"close")
+    field(ONAM,"open")
+    field(OUT,  "@devJDQ016.proto setRelay$(Chan) $(PORT) $(A)")
+    field(FLNK, "$(P)$(R)Relay:mbbiD")
+}

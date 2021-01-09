@@ -1,0 +1,37 @@
+#
+# Simple database and stream protocol file for basic SCPI (IEEE488.2) commands
+#
+
+
+#
+# Short and long form of identification string
+#
+
+record(mbbiDirect, "$(P)$(R)Relay:mbbiD")
+{
+        field(SCAN, "2 second")
+        field(DESC, "Relay open or close state")
+        field(DTYP, "stream")
+        field(INP, "@devJDQ016.proto readRelayState $(PORT)")
+        field(FLNK, "$(P)$(R)R1:bi")
+}
+
+record(mbbiDirect, "$(P)$(R)IN:mbbiD")
+{
+        field(SCAN, "2 second")
+        field(DESC, "Input open or close state")
+        field(DTYP, "stream")
+        field(INP, "@devJDQ016.proto readInState $(PORT)")
+        field(FLNK, "$(P)$(R)IN0:bi")
+}
+
+record(bo, "$(P)$(R)Relay:SetAll")
+{
+        field(DESC, "Control Relay open all")
+        field(DTYP, "stream")
+        field(OUT, "@devJDQ016.proto setAll $(PORT)")
+        field(ZNAM,"closeAll")
+        field(ONAM,"openAll")
+        field(FLNK, "$(P)$(R)Relay:mbbiD")
+}
+

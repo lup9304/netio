@@ -1,0 +1,27 @@
+# Example substitutions file
+
+file "db/devJDQ016.db" {
+   pattern { P, R, PORT, A }
+        { "HALF:", "BD:NetIO:", "L0", 0 }
+}
+
+file db/devJDQ016-bo.db {
+    pattern { P, R, Chan, Next, PORT, A }
+        { "HALF:", "BD:NetIO:", 0, 1, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 1, 2, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 2, 3, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 3, 4, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 4, 5, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 5, 6, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 6, 7, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 7, 8, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 8, 9, "L0", 0 }
+        { "HALF:", "BD:NetIO:", 9, A, "L0", 0 }
+        { "HALF:", "BD:NetIO:", A, B, "L0", 0 }
+        { "HALF:", "BD:NetIO:", B, C, "L0", 0 }
+        { "HALF:", "BD:NetIO:", C, D, "L0", 0 }
+        { "HALF:", "BD:NetIO:", D, E, "L0", 0 }
+        { "HALF:", "BD:NetIO:", E, F, "L0", 0 }
+        { "HALF:", "BD:NetIO:", F, 0, "L0", 0 }
+}
+
